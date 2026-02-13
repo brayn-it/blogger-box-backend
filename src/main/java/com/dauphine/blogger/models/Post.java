@@ -1,13 +1,30 @@
 package com.dauphine.blogger.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class Post {
+
+    @Id
+    @Column(name="name")
     private UUID id;
+
+    @Column(name="title")
     private String title;
+
+    @Column(name="content")
     private String content;
+
+    @Column(name="createdDate")
     private LocalDateTime createdDate;
+
+    @ManyToOne //Multiplicite
+    @JoinColumn(name="category_id") //Cle etrangere
     private Category category;
 
     public UUID getId() {
