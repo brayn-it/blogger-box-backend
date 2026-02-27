@@ -1,13 +1,12 @@
 package com.dauphine.blogger.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Entity
+@Table(name="post")
 public class Post {
 
     @Id
@@ -26,6 +25,13 @@ public class Post {
     @ManyToOne //Multiplicite
     @JoinColumn(name="category_id") //Cle etrangere
     private Category category;
+
+    public Post(){}
+
+    public Post(String title, String content){
+        this.title = title;
+        this.content = content;
+    }
 
     public UUID getId() {
         return id;

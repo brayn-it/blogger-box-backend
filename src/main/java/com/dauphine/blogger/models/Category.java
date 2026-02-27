@@ -18,6 +18,8 @@ public class Category {
     @Column(name="name")
     private String name;
 
+    public Category(){}
+
     public  Category(String name){
         id = UUID.randomUUID();
         name = name;
